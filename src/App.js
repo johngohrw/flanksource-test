@@ -6,17 +6,15 @@ import TeamDetails from "./pages/TeamDetails";
 
 export default function App() {
   return (
-    <div className={s.appWrapper}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/team/:name">
-            <TeamDetails />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/team/:name">
+          <TeamDetails />
+        </Route>
+      </Switch>
+    </Router>
   );
 }

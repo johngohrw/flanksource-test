@@ -1,6 +1,7 @@
 import React from "react";
-// import s from "./index.module.scss";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import s from "./index.module.scss";
 
 export default function Home() {
-  return <div>Homepage</div>;
+  return <DefaultLayout>Homepage</DefaultLayout>;
 }
