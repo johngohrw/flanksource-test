@@ -5,9 +5,24 @@ export default function DefaultLayout({ children, ...props }) {
   return (
     <div className={s.layoutWrapper}>
       <div className={s.header}>
-        <div className={s.branding}>Branding</div>
+        <Branding />
+        <nav>
+          <a href="/html/">HTML</a> |<a href="/css/">CSS</a> |
+          <a href="/js/">JavaScript</a> |<a href="/python/">Python</a>
+        </nav>
       </div>
       <div className={s.content}>{children}</div>
+    </div>
+  );
+}
+
+function Branding() {
+  return (
+    <div className={s.branding}>
+      <div className={s.brandingInner}>
+        <div className={s.brandingText}>FÚTBOL NEWS</div>
+        <div className={s.brandingStreak} />
+      </div>
     </div>
   );
 }
