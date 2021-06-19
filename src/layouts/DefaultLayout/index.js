@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./index.module.scss";
+import Branding from "../../components/Branding";
 
 export default function DefaultLayout({ children, ...props }) {
   return (
@@ -12,17 +13,6 @@ export default function DefaultLayout({ children, ...props }) {
         </nav>
       </div>
       <div className={s.content}>{children}</div>
-    </div>
-  );
-}
-
-function Branding() {
-  return (
-    <div className={s.branding}>
-      <div className={s.brandingInner}>
-        <div className={s.brandingText}>FÚTBOL NEWS</div>
-        <div className={s.brandingStreak} />
-      </div>
     </div>
   );
 }
