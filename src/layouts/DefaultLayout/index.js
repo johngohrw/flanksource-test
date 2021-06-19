@@ -5,14 +5,12 @@ import Branding from "../../components/Branding";
 export default function DefaultLayout({ children, ...props }) {
   return (
     <div className={s.layoutWrapper}>
-      <div className={s.header}>
-        <Branding />
-        <nav>
-          <a href="/html/">HTML</a> |<a href="/css/">CSS</a> |
-          <a href="/js/">JavaScript</a> |<a href="/python/">Python</a>
-        </nav>
+      <div className={s.layoutInner}>
+        <div className={s.header}>
+          <Branding />
+        </div>
+        <div className={s.content}>{children}</div>
       </div>
-      <div className={s.content}>{children}</div>
     </div>
   );
 }
