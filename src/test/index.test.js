@@ -5,7 +5,7 @@ describe("Sample tests", () => {
     hello = "world";
   });
 
-  it("is created empty", () => {
+  it("test suites are working", () => {
     expect(hello).toBe("world");
   });
 });
