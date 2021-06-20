@@ -28,18 +28,21 @@ function Leaderboards({ list, ...props }) {
     {
       label: "RANK",
       render: (row, index) => {
-        return <div>{index + 1}</div>;
+        return <div className={s.tableRank}>{index + 1}</div>;
       },
-      style: { width: "68px", textAlign: "center" }
+      style: { width: "68px", justifyContent: "center", textAlign: "center" }
     },
     {
       label: "",
       render: (row, index) => {
         return (
-          // <div className={s.tableLogo}>
-          //   <img src={row.logo} />
-          // </div>
-          <>logo</>
+          <div
+            style={{ justifyContent: "center" }}
+            className={[s.tableLogo, s.accentedCell].join(" ")}
+          >
+            {/* <img src={row.logo} /> */}
+            logo
+          </div>
         );
       },
       style: { width: "68px" }
@@ -47,51 +50,90 @@ function Leaderboards({ list, ...props }) {
     {
       label: "CLUB",
       render: (row, index) => {
-        return <div>{row.name}</div>;
+        return <div className={[s.accentedCell].join(" ")}>{row.name}</div>;
       },
-      style: { width: "", flexGrow: 1, minWidth: "170px", textAlign: "left" }
+      style: {
+        width: "",
+        flexGrow: 1,
+        minWidth: "170px"
+      }
     },
     {
       label: "GAMES PLAYED",
       render: (row, index) => {
-        return <>{row.played}</>;
+        return (
+          <div
+            style={{ justifyContent: "center" }}
+            className={[s.accentedCell].join(" ")}
+          >
+            {row.played}
+          </div>
+        );
       },
-      style: { width: "100px", textAlign: "center" }
+      style: { width: "100px", justifyContent: "center" }
     },
     {
       label: "WINS",
       render: (row, index) => {
-        return <>{row.wins}</>;
+        return (
+          <div
+            style={{ justifyContent: "center" }}
+            className={[s.accentedCell, s.tableWins].join(" ")}
+          >
+            {row.wins}
+          </div>
+        );
       },
       style: { width: "64px", textAlign: "center" }
     },
     {
       label: "LOSSES",
       render: (row, index) => {
-        return <>{row.losses}</>;
+        return (
+          <div
+            style={{ width: "64px", justifyContent: "center" }}
+            className={[s.accentedCell, s.tableLosses].join(" ")}
+          >
+            {row.losses}
+          </div>
+        );
       },
       style: { width: "64px", textAlign: "center" }
     },
     {
       label: "DRAWS",
       render: (row, index) => {
-        return <>{row.draws}</>;
+        return (
+          <div
+            style={{ width: "64px", justifyContent: "center" }}
+            className={[s.accentedCell].join(" ")}
+          >
+            {row.draws}
+          </div>
+        );
       },
       style: { width: "64px", textAlign: "center" }
     },
     {
       label: "GOAL DIFF.",
       render: (row, index) => {
-        return <>{row.g_diff}</>;
+        return (
+          <div
+            style={{ width: "100px", justifyContent: "center" }}
+            className={[s.accentedCell].join(" ")}
+          >
+            {row.g_diff}
+          </div>
+        );
       },
       style: { width: "100px", textAlign: "center" }
     },
     {
       label: "TOTAL POINTS",
       render: (row, index) => {
-        return <>{row.points}</>;
+        return <div className={s.tablePoints}>{row.points}</div>;
       },
-      style: { width: "92px", textAlign: "center" }
+      style: { width: "92px", justifyContent: "center", textAlign: "center" }
     }
   ];
 
