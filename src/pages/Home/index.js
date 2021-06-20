@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import s from "./index.module.scss";
 
@@ -7,29 +7,15 @@ import { loadData } from "../../utils/football";
 import { data } from "../../content/data";
 
 export default function Home() {
+  const [parsedData, setParsedData] = useState([]);
+
   useEffect(() => {
-    // console.log(data);
-    // data.forEach((o) => {
-    //   console.log(o.score, o.date);
-    // });
+    setParsedData(loadData(data));
   }, []);
 
   return (
     <DefaultLayout>
-      Homepage
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
-      <p>lol</p>
+      <h1>LEADERBOARDS</h1>
     </DefaultLayout>
   );
 }

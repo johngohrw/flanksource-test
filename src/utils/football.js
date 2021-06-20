@@ -10,17 +10,18 @@ export const loadData = (data, currentDate = defaultCurrentDate) => {
     games: []
   };
 
-  // main loop
+  // main loop. loops through each game in data.
   data.forEach((game) => {
-    // compile a list of all team names
-    let teams = Object.keys(game.score);
-
-    teams.forEach((teamName) => {
-      // pushes a new entry to list if the name doesnt exist yet.
+    // pushes a new entry to the main teams list
+    // if the name doesnt exist in it yet.
+    let currentTeams = Object.keys(game.score);
+    currentTeams.forEach((teamName, index) => {
       if (result.teams.findIndex((o) => o.name === teamName) === -1) {
         result.teams.push({
           name: teamName,
           played: 0,
+          goals: 0,
+          concessions: 0,
           wins: 0,
           losses: 0,
           draws: 0,
@@ -28,8 +29,45 @@ export const loadData = (data, currentDate = defaultCurrentDate) => {
           points: 0
         });
       }
+    });
 
-      // recomputes values based on game result.
+    // recomputes values based on game result.
+    currentTeams.forEach((teamName, index) => {
+      const currentTeamIndex = result.teams.findIndex(
+        (o) => o.name === teamName
+      );
+      const currentTeam = result.teams[currentTeamIndex];
+      const opponentTeamIndex = result.teams.findIndex(
+        (o) => o.name === currentTeams[index ^ 1]
+      );
+      const opponentTeam = result.teams[opponentTeamIndex];
+      const opponentName = currentTeams[index ^ 1];
+
+      // if game has happened
+      if (game.score[teamName] !== null) {
+        // update games played
+        currentTeam.played += 1;
+
+        // update goals (& concessions for opponent team)
+        currentTeam.goals += game.score[teamName];
+        opponentTeam.concessions += game.score[teamName];
+
+        // update goal differences based on current team's goals
+        currentTeam.g_diff += game.score[teamName];
+        opponentTeam.g_diff -= game.score[teamName];
+
+        // update wins, losses, draws, and points (for current team only)
+        // also update points (for current team)
+        if (game.score[teamName] > game.score[opponentName]) {
+          currentTeam.wins += 1;
+          currentTeam.points += 3;
+        } else if (game.score[teamName] < game.score[opponentName]) {
+          currentTeam.losses += 1;
+        } else if (game.score[teamName] === game.score[opponentName]) {
+          currentTeam.draws += 1;
+          currentTeam.points += 1;
+        }
+      }
     });
 
     // compute if a game is upcoming or already started
@@ -41,6 +79,6 @@ export const loadData = (data, currentDate = defaultCurrentDate) => {
     });
   });
 
-  console.log(result);
+  console.log("LOADDATA RESULT", result);
   return result;
 };
