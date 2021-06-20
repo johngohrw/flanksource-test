@@ -16,6 +16,11 @@ export default function Home() {
   return (
     <DefaultLayout>
       <h1>LEADERBOARDS</h1>
+      <Leaderboards />
     </DefaultLayout>
   );
+}
+
+function Leaderboards() {
+  return <div className={s.tableWrapper}>table</div>;
 }
