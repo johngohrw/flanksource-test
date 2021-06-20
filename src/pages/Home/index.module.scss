@@ -1,3 +1,37 @@
 .pageWrapper {
   display: initial
 }
+
+.tableWrapper {
+  // border: 1px solid black;
+  
+  .tableHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-weight: 800;
+    font-size: 12px;
+    color: #A1A1A1;
+    height: 42px;
+
+    .tableHeaderCell {
+      flex-shrink: 0;
+    }
+  }
+
+  .tableRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+
+    height: 64px;
+    background: #E3DFD9;
+    border-bottom: 2px solid #C7C7C7;
+  
+    .tableCell {
+      flex-shrink: 0;
+    }
+  }
+}
