@@ -7,7 +7,7 @@ import { loadData } from "../../utils/football";
 import { data } from "../../content/data";
 
 export default function Home() {
-  const [parsedData, setParsedData] = useState([]);
+  const [parsedData, setParsedData] = useState({});
 
   useEffect(() => {
     setParsedData(loadData(data));
@@ -16,11 +16,15 @@ export default function Home() {
   return (
     <DefaultLayout>
       <h1>LEADERBOARDS</h1>
-      <Leaderboards />
+      <Leaderboards list={parsedData?.teams} />
     </DefaultLayout>
   );
 }
 
 function Leaderboards() {
-  return <div className={s.tableWrapper}>table</div>;
+  return (
+    <div className={s.tableWrapper}>
+      <div className={s.tableHeader}></div>
+    </div>
+  );
 }
