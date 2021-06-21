@@ -11,7 +11,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .layoutWrapper {
   min-height: 100%;
-
+  height: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;

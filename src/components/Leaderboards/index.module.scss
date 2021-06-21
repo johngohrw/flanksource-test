@@ -1,0 +1,76 @@
+.tableWrapper {
+  // border: 1px solid black;
+  min-width: 790px;
+  
+  .tableHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-weight: 800;
+    font-size: 12px;
+    color: #A1A1A1;
+    height: 42px;
+
+    .tableHeaderCell {
+      flex-shrink: 0;
+    }
+  }
+
+  .tableRow {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+
+    height: 64px;
+    background: #E3DFD9;
+    border-bottom: 2px solid #C7C7C7;
+  
+    .tableCell {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+  }
+  
+  .accentedCell {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: #d9d6d1;
+    border-top: 4px solid #E3DFD9;
+  }
+
+  .tableRank {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #343434;
+  }
+
+  .tableLogo {
+    width: 100%;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      padding: 12px;
+    }
+  }
+
+  .tableWins {
+    color: #1aaa1a;
+  }
+
+  .tableLosses {
+    color: #e35555;
+  }
+
+  .tablePoints {
+    font-weight: 800;
+    font-size: 18px;
+    color: #202020;
+  }
+}
