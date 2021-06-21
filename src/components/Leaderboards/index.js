@@ -44,7 +44,7 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return (
           <div
-            style={{ justifyContent: "center" }}
+            style={{ justifyContent: "center", fontWeight: 600 }}
             className={[s.accentedCell].join(" ")}
           >
             {row.played}
@@ -58,7 +58,7 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return (
           <div
-            style={{ justifyContent: "center" }}
+            style={{ justifyContent: "center", fontWeight: 600 }}
             className={[s.accentedCell, s.tableWins].join(" ")}
           >
             {row.wins}
@@ -72,7 +72,7 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return (
           <div
-            style={{ width: "64px", justifyContent: "center" }}
+            style={{ width: "64px", justifyContent: "center", fontWeight: 600 }}
             className={[s.accentedCell, s.tableLosses].join(" ")}
           >
             {row.losses}
@@ -86,7 +86,7 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return (
           <div
-            style={{ width: "64px", justifyContent: "center" }}
+            style={{ width: "64px", justifyContent: "center", fontWeight: 600 }}
             className={[s.accentedCell].join(" ")}
           >
             {row.draws}
@@ -100,7 +100,11 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return (
           <div
-            style={{ width: "100px", justifyContent: "center" }}
+            style={{
+              width: "100px",
+              justifyContent: "center",
+              fontWeight: 600
+            }}
             className={[s.accentedCell].join(" ")}
           >
             {row.g_diff}
