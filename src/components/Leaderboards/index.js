@@ -137,7 +137,7 @@ export default function Leaderboards({ list, ...props }) {
               className={s.tableRow}
               key={index}
               onClick={() => {
-                history.push(`/teams/${row.name}`);
+                history.push(`/team/${row.name}`);
               }}
             >
               {columns.map((column, _index) => {

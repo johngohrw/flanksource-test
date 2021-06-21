@@ -11,7 +11,7 @@ export default function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/team/:name">
+        <Route path="/team/:name">
           <TeamDetails />
         </Route>
       </Switch>
