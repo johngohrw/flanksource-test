@@ -32,17 +32,27 @@
       align-items: center;
       flex-shrink: 0;
     }
+
+    .accentedCell {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      background: #d9d6d1;
+      border-top: 4px solid #E3DFD9;
+    }
+
+    &:hover {
+      background: #d5d0c8;
+      cursor: pointer;
+
+      .accentedCell {
+        background: #c9c6c0;
+        border-top: 4px solid #d5d0c8;
+      }
+    }
   }
   
-  .accentedCell {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background: #d9d6d1;
-    border-top: 4px solid #E3DFD9;
-  }
-
   .tableRank {
     font-family: 'Oswald', sans-serif;
     font-weight: 500;

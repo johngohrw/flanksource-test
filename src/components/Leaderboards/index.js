@@ -1,8 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { logoMap } from "../../content/logomap";
 import s from "./index.module.scss";
 
 export default function Leaderboards({ list, ...props }) {
+  const history = useHistory();
+
   const columns = [
     {
       label: "RANK",
@@ -130,7 +133,13 @@ export default function Leaderboards({ list, ...props }) {
         list.length > 0 &&
         list.map((row, index) => {
           return (
-            <div className={s.tableRow} key={index}>
+            <div
+              className={s.tableRow}
+              key={index}
+              onClick={() => {
+                history.push(`/teams/${row.name}`);
+              }}
+            >
               {columns.map((column, _index) => {
                 return (
                   <div
