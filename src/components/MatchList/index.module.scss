@@ -3,83 +3,119 @@
   flex-direction: column;
   background-color: grey;
   padding: 2px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-radius: 4px;
   min-width: 320px;
   width: 100%;
 
   .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
 
-    font-family: 'Heebo', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
+      font-family: "Heebo", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
   }
+
   .list {
-    display: flex;
-    flex-direction: column;
-    background-color: #d3d0cc;
-    flex-grow: 1;
-    
-    .listItem {
       display: flex;
       flex-direction: column;
+      background-color: #d3d0cc;
+      flex-grow: 1;
 
-      background: #E3DFD9;
-      border-bottom: 2px solid #C7C7C7;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      overflow: hidden;
 
-      .versusSection {
-        display: flex;
-        flex-direction: row;
-        height: 40px;
-
-        .teamName {
-          width: 100%;
+      .listItem {
           display: flex;
-          align-items: center;
-          
-          font-family: 'Heebo', sans-serif;
-          font-size: 14px;
-          padding: 6px 8px;
+          flex-direction: column;
+          background: #e3dfd9;
+          border-bottom: 2px solid #c7c7c7;
 
-          &:first-child {
-            justify-content: flex-end;
+          .versusSection {
+              display: flex;
+              flex-direction: row;
+              height: 54px;
+              margin: 4px 4px 0;
+              background: #ece7e0;
+
+              .teamName {
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+
+                  font-family: "Heebo", sans-serif;
+                  font-size: 14px;
+                  padding: 6px 8px;
+
+                  &:first-child {
+                      justify-content: flex-end;
+                  }
+              }
+
+              .logo {
+                  width: 22px;
+                  flex-shrink: 0;
+
+                  img {
+                      width: 100%;
+                      height: 100%;
+                  }
+              }
+
+              .score {
+                  width: 56px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+
+                  font-family: "Oswald", sans-serif;
+                  font-size: 18px;
+                  font-weight: 500;
+                  color: #101010;
+                  letter-spacing: 6px;
+              }
+
+              .versus {
+                  width: 50px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+
+                  font-family: "Heebo", sans-serif;
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: #8c8c8c;
+              }
           }
-        }
-        .logo {
-        }
-        .score {
-          width: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          
-          font-family: 'Oswald', sans-serif;
-          font-size: 20px;
-          font-weight: 500;
-          color: #101010;
-          letter-spacing: 6px;
-        }
-        .versus {
-          width: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
 
-          font-family: 'Heebo', sans-serif;
-          font-size: 16px;
-          font-weight: 600;
-          color: #8C8C8C;
-        }
+          .timeSection {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              padding: 4px;
+              font-size: 11px;
+          }
       }
-      .timeSection {
-      }
-    }
   }
+}
+
+.emptyList {
+  width: 100%;
+  flex-grow: 1;
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Heebo", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #909090;
 }

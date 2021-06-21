@@ -57,17 +57,17 @@ export default function TeamDetails() {
       </div>
       <div className={s.matchTables}>
         <MatchList
-          title="UPCOMING MATCHES"
-          list={upcomingMatches}
-          mainTeam={name}
-          bgColor="#AD5656"
-        />
-        <MatchList
           title="MATCH RESULTS"
           list={matchHistory}
           mainTeam={name}
           hasScore
-          bgColor="#4F76B0"
+          bgColor="rgb(115 143 185)"
+        />
+        <MatchList
+          title="UPCOMING MATCHES"
+          list={upcomingMatches}
+          mainTeam={name}
+          bgColor="rgb(191 122 122)"
         />
       </div>
     </DefaultLayout>
