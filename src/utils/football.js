@@ -79,7 +79,6 @@ export const loadData = (data, currentDate = defaultCurrentDate) => {
     });
   });
 
-  console.log("LOADDATA RESULT", result); // todo: remove
   return result;
 };
 

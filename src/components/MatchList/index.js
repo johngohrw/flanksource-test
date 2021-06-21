@@ -12,16 +12,16 @@ export default function MatchList({
   ...props
 }) {
   return (
-    <div className={s.container} style={{ background: bgColor }}>
+    <div className={s.container} style={{ background: bgColor }} {...props}>
       <div className={s.title}>{title}</div>
       <div className={s.list}>
         {list &&
           list.length > 0 &&
-          list.map((game) => {
+          list.map((game, index) => {
             const teams = Object.keys(game.score);
             const mainTeamIndex = teams.findIndex((o) => o === mainTeam);
             return (
-              <div className={s.listItem}>
+              <div className={s.listItem} key={index}>
                 <div className={s.versusSection}>
                   <div className={s.teamName}>{teams[mainTeamIndex]}</div>
                   <div className={s.logo}>

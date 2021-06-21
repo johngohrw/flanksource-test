@@ -17,7 +17,6 @@ export default function TeamDetails() {
   const [matchHistory, setMatchHistory] = useState([]);
 
   useEffect(() => {
-    console.log("team name:", name);
     let loadedData = loadData(data);
     setParsedData(loadedData);
   }, []);
