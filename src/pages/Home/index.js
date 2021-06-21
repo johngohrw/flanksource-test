@@ -9,6 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     let loadedData = loadData(data);
+    // sort descendingly by total points
     loadedData.teams.sort((a, b) => {
       return b.points - a.points;
     });
