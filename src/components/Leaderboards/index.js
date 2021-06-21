@@ -12,7 +12,11 @@ export default function Leaderboards({ list, ...props }) {
       render: (row, index) => {
         return <div className={s.tableRank}>{index + 1}</div>;
       },
-      style: { width: "68px", justifyContent: "center", textAlign: "center" }
+      columnStyle: {
+        width: "68px",
+        justifyContent: "center",
+        textAlign: "center"
+      }
     },
     {
       label: "",
@@ -26,14 +30,14 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "68px" }
+      columnStyle: { width: "68px" }
     },
     {
       label: "CLUB",
       render: (row, index) => {
         return <div className={[s.accentedCell].join(" ")}>{row.name}</div>;
       },
-      style: {
+      columnStyle: {
         width: "",
         flexGrow: 1,
         minWidth: "170px"
@@ -51,7 +55,7 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "100px", justifyContent: "center" }
+      columnStyle: { width: "100px", justifyContent: "center" }
     },
     {
       label: "WINS",
@@ -65,7 +69,7 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "64px", textAlign: "center" }
+      columnStyle: { width: "64px", textAlign: "center" }
     },
     {
       label: "LOSSES",
@@ -79,7 +83,7 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "64px", textAlign: "center" }
+      columnStyle: { width: "64px", textAlign: "center" }
     },
     {
       label: "DRAWS",
@@ -93,7 +97,7 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "64px", textAlign: "center" }
+      columnStyle: { width: "64px", textAlign: "center" }
     },
     {
       label: "GOAL DIFF.",
@@ -111,14 +115,18 @@ export default function Leaderboards({ list, ...props }) {
           </div>
         );
       },
-      style: { width: "100px", textAlign: "center" }
+      columnStyle: { width: "100px", textAlign: "center" }
     },
     {
       label: "TOTAL POINTS",
       render: (row, index) => {
         return <div className={s.tablePoints}>{row.points}</div>;
       },
-      style: { width: "92px", justifyContent: "center", textAlign: "center" }
+      columnStyle: {
+        width: "92px",
+        justifyContent: "center",
+        textAlign: "center"
+      }
     }
   ];
 
@@ -127,7 +135,11 @@ export default function Leaderboards({ list, ...props }) {
       <div className={s.tableHeader}>
         {columns.map((column, index) => {
           return (
-            <div className={s.tableHeaderCell} style={column.style} key={index}>
+            <div
+              className={s.tableHeaderCell}
+              style={column.columnStyle}
+              key={index}
+            >
               {column.label}
             </div>
           );
@@ -148,7 +160,7 @@ export default function Leaderboards({ list, ...props }) {
                 return (
                   <div
                     className={s.tableCell}
-                    style={column.style}
+                    style={column.columnStyle}
                     key={_index}
                   >
                     {column.render(row, index)}
