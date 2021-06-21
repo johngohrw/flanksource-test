@@ -12,12 +12,15 @@ export default function TeamDetails() {
   const history = useHistory();
   const { name } = useParams();
   const [parsedData, setParsedData] = useState({});
-
   const [upcomingMatches, setUpcomingMatches] = useState([]);
   const [matchHistory, setMatchHistory] = useState([]);
 
   useEffect(() => {
     let loadedData = loadData(data);
+    // sort descendingly by date (newest date first)
+    loadedData.games = loadedData.games.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
     setParsedData(loadedData);
   }, []);
 
@@ -30,9 +33,11 @@ export default function TeamDetails() {
         })
       );
       setMatchHistory(
-        teamGames.filter((o) => {
-          return !o.isUpcoming;
-        })
+        teamGames
+          .filter((o) => {
+            return !o.isUpcoming;
+          })
+          .reverse() // reversing a previously sorted list.
       );
     }
   }, [parsedData]);
