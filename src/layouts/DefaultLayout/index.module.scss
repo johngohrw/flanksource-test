@@ -1,5 +1,8 @@
 @import "../../styles/breakpoints.scss";
 
+body {
+  background-color: #EDE9E3;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
@@ -7,7 +10,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .layoutWrapper {
-  background-color: #EDE9E3;
   min-height: 100%;
 
   display: flex;
