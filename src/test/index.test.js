@@ -1,4 +1,8 @@
-import { loadData } from "../utils/football";
+import {
+  loadData,
+  filterGamesByTeam,
+  filterGamesByUpcoming
+} from "../utils/football";
 
 describe("Sample tests", () => {
   let hello;
@@ -103,5 +107,11 @@ describe("Data loading functions", () => {
     expect(manCity.points).toBe(3);
     expect(chelsea.points).toBe(1);
     expect(tottenham.points).toBe(0);
+  });
+
+  it("Game list can be properly filtered with a team's name", () => {
+    const filteredGames = filterGamesByTeam(parsedData.games, "Chelsea");
+    expect(filteredGames.length).toBe(1);
+    expect(Object.keys(filteredGames[0].score).includes("Chelsea")).toBe(true);
   });
 });

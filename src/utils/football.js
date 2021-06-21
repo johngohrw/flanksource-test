@@ -79,6 +79,17 @@ export const loadData = (data, currentDate = defaultCurrentDate) => {
     });
   });
 
-  console.log("LOADDATA RESULT", result);
+  console.log("LOADDATA RESULT", result); // todo: remove
+  return result;
+};
+
+export const filterGamesByTeam = (games, name) => {
+  let result = [];
+  games.forEach((game) => {
+    let teams = Object.keys(game.score);
+    if (teams.includes(name)) {
+      result.push(game);
+    }
+  });
   return result;
 };
