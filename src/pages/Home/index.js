@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { loadData } from "../../utils/football";
 import { data } from "../../content/data";
+import { logoMap } from "../../content/logomap";
 import s from "./index.module.scss";
 
 export default function Home() {
@@ -40,8 +41,7 @@ function Leaderboards({ list, ...props }) {
             style={{ justifyContent: "center" }}
             className={[s.tableLogo, s.accentedCell].join(" ")}
           >
-            {/* <img src={row.logo} /> */}
-            logo
+            <img alt={row.name} src={logoMap[row.name]} />
           </div>
         );
       },

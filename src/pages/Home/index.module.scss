@@ -57,6 +57,11 @@
   .tableLogo {
     width: 100%;
     justify-content: center;
+
+    img {
+      height: 100%;
+      padding: 12px;
+    }
   }
 
   .tableWins {
