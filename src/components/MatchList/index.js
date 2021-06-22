@@ -47,8 +47,11 @@ export default function MatchList({
                   <div className={s.teamName}>{teams[mainTeamIndex ^ 1]}</div>
                 </div>
                 <div className={s.timeSection}>
-                  <div className={s.date}>
-                    {format(new Date(game.date), "h:mmaaa, do MMM yyyy")}
+                  <div
+                    className={s.date}
+                    title={format(new Date(game.date), "h:mmaaa, do MMM yyyy")}
+                  >
+                    {`${format(new Date(game.date), "d/M, H:mm")}hrs`}
                   </div>
                   <div className={s.duration}>
                     {`${hasScore ? "" : "starts in "}${formatDuration(
