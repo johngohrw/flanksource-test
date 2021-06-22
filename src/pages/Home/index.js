@@ -13,6 +13,7 @@ export default function Home() {
     loadedData.teams.sort((a, b) => {
       return b.points - a.points;
     });
+    console.log(loadedData);
     setParsedData(loadedData);
   }, []);
 

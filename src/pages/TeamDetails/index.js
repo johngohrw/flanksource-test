@@ -14,10 +14,16 @@ export default function TeamDetails() {
   const [parsedData, setParsedData] = useState({});
   const [upcomingMatches, setUpcomingMatches] = useState([]);
   const [matchHistory, setMatchHistory] = useState([]);
+  const [stats, setStats] = useState([]);
+  const [teamRanks, setTeamRanks] = useState([]);
 
   useEffect(() => {
     let loadedData = loadData(data);
-    // sort descendingly by date (newest date first)
+    // sort teams descendingly by total points
+    loadedData.teams.sort((a, b) => {
+      return b.points - a.points;
+    });
+    // sort games descendingly by date (newest date first)
     loadedData.games = loadedData.games.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
@@ -39,6 +45,49 @@ export default function TeamDetails() {
           })
           .reverse() // reversing a previously sorted list.
       );
+
+      let team = parsedData?.teams?.find((o) => o.name === name);
+      let newStats = [
+        {
+          label: "Current Rank",
+          value: `#${parsedData?.teams?.findIndex((o) => o.name === name) + 1}`
+        },
+        {
+          label: "Points",
+          value: team.points
+        },
+        {
+          label: "Games",
+          value: team.played
+        },
+        {
+          label: "Wins",
+          value: team.wins
+        },
+        {
+          label: "Losses",
+          value: team.losses
+        },
+        {
+          label: "Win rate",
+          value: `${
+            (team.wins / (team.wins + team.draws + team.losses)) * 100
+          }%`
+        },
+        {
+          label: "Goals",
+          value: team.goals
+        },
+        {
+          label: "Concessions",
+          value: team.concessions
+        },
+        {
+          label: "Goal Diff",
+          value: team.g_diff
+        }
+      ];
+      setStats(newStats);
     }
   }, [parsedData]);
 
@@ -58,6 +107,16 @@ export default function TeamDetails() {
           <img alt={name} src={logoMap[name]} />
         </div>
         <h1>{name.toUpperCase()}</h1>
+      </div>
+      <div className={s.statsRow}>
+        {stats.map((o) => {
+          return (
+            <div className={s.statItem}>
+              <div className={s.statValue}>{o.value}</div>
+              <div className={s.statLabel}>{o.label.toUpperCase()}</div>
+            </div>
+          );
+        })}
       </div>
       <div className={s.matchTables}>
         <MatchList
