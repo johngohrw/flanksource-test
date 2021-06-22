@@ -85,6 +85,10 @@ export default function TeamDetails() {
         {
           label: "Goal Diff",
           value: team.g_diff
+        },
+        {
+          label: "Goals per Game",
+          value: (team.goals / team.played).toFixed(1)
         }
       ];
       setStats(newStats);
